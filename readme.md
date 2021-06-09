@@ -14,6 +14,6 @@ GTP engine for Zen,modified from [Zen7.py](https://github.com/zliu1022/Webgo/blo
 
 Support command:
 
-`lz-analyze` Analyze command,can be used for show candidates in [Lizzie](https://github.com/featurecat/lizzie),[LizzieYzy](https://github.com/yzyray/lizzieyzy)
+`lz-analyze` Analyze command,can be used for display candidates in [Lizzie](https://github.com/featurecat/lizzie),[LizzieYzy](https://github.com/yzyray/lizzieyzy)
 
-`territory` Estimate command,can be used for estimate engine in LizzieYzy
+`territory` Estimate command,can be used as estimate engine in LizzieYzy
