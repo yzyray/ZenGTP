@@ -529,9 +529,9 @@ class ZEN(object):
 	 
 
     def gen_analyze(self, C=-1, interval=100):
-        global X, Y, P, W, S
+      #  global X, Y, P, W, S
       #  print "zen7 thread %s is running" % threading.current_thread().name
-     #   print C, interval
+      #  print C, interval
       #  interval=interval*5
         if C==-1: C=self.ZenGetNextColor()
         self.analyzeStatus = True
@@ -564,10 +564,10 @@ class ZEN(object):
 					item = list[i]
 					 #print i
                 #Print('info move %s visits %d winrate %d order %d pv %s' % (item[4].split()[0], item[2], item[3] * 10000, i, item[4]))
-					if item[4] == 'pass':
-						continue
-					analyz_response[i]["x"] = 'ABCDEFGHJKLMNOPQRST'.find(item[4].split()[0][0])
-					analyz_response[i]["y"] = self.BoardSize - int(item[4].split()[0][1:])
+				#	if item[4] == 'pass':
+				#		continue
+					#analyz_response[i]["x"] = 'ABCDEFGHJKLMNOPQRST'.find(item[4].split()[0][0])
+					#analyz_response[i]["y"] = self.BoardSize - int(item[4].split()[0][1:])
 					analyz_response[i]["move"] = item[4].split()[0]
 					analyz_response[i]["visits"] = item[2]
 					analyz_response[i]["winrate"] = int(item[3] * 10000)
