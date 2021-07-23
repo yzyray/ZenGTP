@@ -1058,8 +1058,8 @@ def main(argv=None):
                 'quit\n' + 'boardsize\n' + 'clear_board\n' + 'komi\n' + 'play\n' + 'genmove\n' + \
                 'showboard\n' + 'undo\n' + 'pass\n'  + 'genmove\n' + 'protocol_version\n' + \
                 'strength\n' + 'maxtime\n' + 'rotate\n' + 'zen-analyze\n' + 'loadsgf\n' + \
-                'printsgf\n' + 'savesgf\n' + 'time_settings\n' + 'lz-analyze\n' + 'time_left\n' + \
-                'set_free_handicap\n' + 'final_score\n' + 'analyze\n' + 'go\n' + 'auto\n' + \
+                'printsgf\n' + 'savesgf\n' + 'time_settings\n' + 'lz-analyze\n' + 'heatmap\n' + \
+                'set_free_handicap\n' + 'final_score\n' + 'time_left\n' + 'go\n' + 'auto\n' + \
                 'policy\n' + 'territory\n' + 'gogui-analyze_commands\n' + \
                 'sabaki-genmovelog\n' + 'sabaki-flat\n')
             continue
@@ -1620,17 +1620,6 @@ def main(argv=None):
             wsock=0
             C = Z.ZenGetNextColor()
             interval=int(Cmd[1])
-            th = threading.Thread(target=Z.gen_analyze, args=(C,interval), name='gen-analyze')
-            th.start()            
-            continue
-			
-        if Cmd[0] == 'analyze':
-            Reply('')
-            Z.MaxTime = float(1000000.0)
-            Z.ZenSetMaxTime(c_float(Z.MaxTime))
-            wsock=0
-            C = Z.ZenGetNextColor()
-            interval=int(Cmd[2])
             th = threading.Thread(target=Z.gen_analyze, args=(C,interval), name='gen-analyze')
             th.start()            
             continue
