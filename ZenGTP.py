@@ -577,9 +577,16 @@ class ZEN(object):
 					info+='info move %s visits %d winrate %d order %d pv %s ' % (analyz_response[i]["move"],analyz_response[i]["visits"],analyz_response[i]["winrate"],analyz_response[i]["order"], analyz_response[i]["pv"])
             except ValueError as e:
 				print(e)
-					#print('unknown error')
-					
+					#print('unknown error')	
                     
+            if self.ZenIsThinking() == -0x80000000:
+#                 Print('ZenIsThinking()==-0x80000000')
+ #                self.Strength = self.lastStrength
+                 break
+            if self.analyzeStatus==0:                
+                #Print('analyzeStatus==0')
+#                 self.Strength = self.lastStrength
+                break                    
             if info!='' and ((self.ThinkInterval*thinkcount*100)%interval)==0:
                 #info move K19 visits 2 winrate 5114 order 0 pv K19 L3
                 ReplyInfo(info)
@@ -590,14 +597,6 @@ class ZEN(object):
             ret["sess"]=self.analyzeSess;
             #Print('')
 
-            if self.ZenIsThinking() == -0x80000000:
-#                 Print('ZenIsThinking()==-0x80000000')
- #                self.Strength = self.lastStrength
-                 break
-            if self.analyzeStatus==0:                
-                #Print('analyzeStatus==0')
-#                 self.Strength = self.lastStrength
-                break
 #            if list[0][2]>=self.Strength:
 #               Print('Stop gen_analyze >=Strength(%d)' % self.Strength)
 #                self.Strength = self.lastStrength
