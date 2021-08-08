@@ -582,7 +582,7 @@ class ZEN(object):
                     
             if info!='' and ((self.ThinkInterval*thinkcount*100)%interval)==0:
                 #info move K19 visits 2 winrate 5114 order 0 pv K19 L3
-                Print(info)
+                ReplyInfo(info)
                # print ret
                # print
 
@@ -816,7 +816,10 @@ class ZEN(object):
 def Reply(S):
     sys.stdout.write('= ' + S + '\n\n')
     sys.stdout.flush()
-
+    
+def ReplyInfo(S):
+    sys.stdout.write(S + '\n')
+    sys.stdout.flush()
 
 def Print(S):
     sys.stderr.write(S + '\n')
