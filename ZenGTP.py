@@ -24,7 +24,7 @@ import sys, time, getopt, os
 import threading
 import json
 #from geventwebsocket import WebSocketError
-defaultMaxTime = 5
+defaultMaxTime = 60
 
 class ZEN(object):
     def __init__(self, name, dll, boardsize, komi, strength, threads, resign, thinkinterval, printinterval, maxsimulations=1000000000, maxtime=1000000000.0, pnlevel=3, pnweight=1.0, vnmixrate=0.75, amaf=1.0, prior=1.0, dcnn=True):
@@ -1153,6 +1153,7 @@ def main(argv=None):
         if Cmd in [['genmove', 'w'],['genmove', 'b'],['genmove', 'white'],['genmove', 'black']]:
             C = Z.ZenGetNextColor()
             if (Z.MaxTime>999) :
+                global defaultMaxTime
                 Z.MaxTime = defaultMaxTime
                 Z.ZenSetMaxTime(c_float(Z.MaxTime))
                 Print('Set limited time')
