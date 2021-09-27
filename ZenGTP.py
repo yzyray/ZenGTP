@@ -1158,10 +1158,13 @@ def main(argv=None):
                 Z.ZenSetMaxTime(c_float(Z.MaxTime))
                 Print('Set limited time')
             if [C, Cmd[1]] in [[1, 'b'], [2, 'w'], [1, 'black'], [2, 'white']]:
+                Print('wrong color')
+                Reply('pass')
                 Z.ZenPass(C)
-                Z.passcount+=1
-                Z.Sgf.append(('W' if C == 1 else 'B') + '[tt]')
-                C = 3 - C 
+                continue
+#                Z.passcount+=1
+#                Z.Sgf.append(('W' if C == 1 else 'B') + '[tt]')
+#                C = 3 - C 
             Top = Z.ZenGenMove(C)
             if len(Top) != 0 and Top[0][3] < Z.ResignRate:
                 ra,rastr=Z.ZenScore()
@@ -1621,6 +1624,9 @@ def main(argv=None):
                 Print('Missing interval')
                 Reply('')
                 continue
+            if (len(Cmd)==3) :   
+                if [Cmd[1]] in [['b'], ['w'], ['B'], ['W']]:
+                    Cmd[1]=Cmd[2]
             Reply('')
             if (Z.MaxTime<1000000) :
                 Z.MaxTime = float(1000000.0)
